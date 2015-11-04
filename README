@@ -5,10 +5,12 @@ This plugin configures Vim to be a little more efficient at editing XQuery...!
 It also sets up Exuberant Ctags for XQuery, since it's not one of the supported languages.
 
 ftplugin/xquery.vim:
-    -Makes keys like gd and<C-]> and i_CTRL-p work better when editing XQuery files by temporarily adding the hyphen - to the 'iskeyword' option
-    -Sets options useful when editing XQuery (like 'set comments')
-    -Sets a few variables to make matchit.vim and taglist.vim work better with XQuery
-    -Comment regions out via surround.vim by visually selecting an area, then pressing Sc
+    - Makes keys like gd and<C-]> and i_CTRL-p work better when editing XQuery files by adding the hyphen - to the 'iskeyword' option
+      - NB: this makes navigation with w etc. skip over whole tokens.  To navigate by dashes, use https://github.com/bkad/CamelCaseMotion
+        and navigate with <Leader>w instead.  (e.g. ,w by default)
+    - Sets options useful when editing XQuery (like 'set comments')
+    - Sets a few variables to make matchit.vim and taglist.vim work better with XQuery
+    - Comment regions out via surround.vim by visually selecting an area, then pressing Sc
 
 xquerycomplete.vim:
     -Completes W3C XQuery 'fn' functions, types and keywords.
@@ -57,6 +59,10 @@ indent/xquery.vim:
          
 
 __install details__
+
+Just use your favourite package manager (Vundle etc.)  You'll have to additionally do steps 4-5 below if you want Ctags support.
+
+OR
 
   1.  Copy ftplugin/xquery.vim to $HOME/.vim/ftplugin or $HOME/vimfiles/ftplugin or $VIM/vimfiles/ftplugin (and set 'filetype plugin on')
   2.  Copy autoload/xquerycomplete.vim to $HOME/.vim/autoload or $HOME/vimfiles/autoload or $VIM/vimfiles/autoload
